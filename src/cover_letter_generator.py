@@ -20,3 +20,8 @@ COMPANY YAML ENTRY TEMPLATE:
     - ""
 
 '''
+
+# TODO
+class CoverLetterGenerator:
+    def __init__(self):
+        pass
