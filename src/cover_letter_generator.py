@@ -32,7 +32,8 @@ class CoverLetterGenerator:
         # read template
         self.template = ""
         with open(template_file, "r") as template:
-            self.template = "".join(template.readlines())
+            self.template = "".join([x.strip() for x in template.readlines()])
+        
 
 def collect_args():
     parser = argparse.ArgumentParser()

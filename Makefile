@@ -3,7 +3,7 @@ OUT_PATH = out
 
 RESUME_FILE = ${DEPENDENCIES_PATH}/reilly_parent_devops_resume.pdf
 COMPANIES_FILE = ${DEPENDENCIES_PATH}/companies.yaml
-TEMPLATE_FILE = ${DEPENDENCIES_PATH}/template.txt
+TEMPLATE_FILE = ${DEPENDENCIES_PATH}/template.html
 
 run: install
 	poetry run python src/cover_letter_generator.py \
