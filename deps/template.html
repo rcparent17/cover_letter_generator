@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <style>
+            body {
+                width: 6.9in;
+                height: 11in;
+                margin: 0.8in;
+            }
+            p, br {
+                font-family: 'Nunito';
+                font-size: 11pt;
+                padding: 0%;
+            }
+            ol, li {
+                font-family: 'Nunito';
+                font-size: 11pt;
+            }
+            h1 {
+                font-family: 'Nunito';
+                font-size: 19pt;
+                text-align: center;
+                font-variant: small-caps;
+                margin: 1%;
+                line-height: 0.8;
+            }
+            h2 {
+                font-family: 'Nunito';
+                font-size: 11pt;
+                text-align: center;
+                font-weight: normal;
+                margin-top: 1%;
+            }
+            hr {
+                padding: 0%;
+                margin: 0%;
+                line-height: 0%;
+                height: 4px;
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Reilly Parent</h1>
+            <hr />
+            <h2>
+                Clarkston, Michigan 48348 | 248.707.9714 | <a href="mailto:reilly.c.parent@gmail.com">reilly.c.parent@gmail.com</a> | <a href="https://www.linkedin.com/in/reilly-parent/">linkedin.com/in/reilly-parent</a>
+            </h2>
+        </div>
+        <p id="company_greeting">
+            {COMPANY_NAME}
+            <br>
+            {COMPANY_LOCATION}
+            <br>
+            <br>
+            Dear: {COMPANY_NAME} hiring team
+        </p>
+        <p id="intro_paragraph">
+            I have extensive experience in large-scale CI/CD systems and software process automation helping developers to be more efficient. I am confident that as your {JOB_TITLE}, I will be able to add significant value and help your company achieve its objectives. I have addressed your requirements below:
+        </p>
+        <p><b><u>Your Requirements</u></b></p>
+        <ol id="requirements_list">
+            {REQUIREMENTS}
+        </ol>
+        <p><b><u>My Qualifications</u></b></p>
+        <ol id="qualifications_list">
+            {QUALIFICATIONS}
+        </ol>
+        <p id="outro_paragraph">
+            I would greatly appreciate the opportunity to work with and make a difference at {COMPANY_NAME}. I look forward to meeting with you to further discuss my qualifications.
+            <br>
+            <br>
+            Sincerely,
+            <br>
+            Reilly Parent
+        </p>
+    </body>
+
+</html>
