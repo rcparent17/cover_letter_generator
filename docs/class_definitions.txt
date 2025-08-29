@@ -1,0 +1,9 @@
+CoverLetterGenerator
+	def constructor()
+	def generate_letter()
+	def html_to_pdf()
+	def merge_docs()
+	def populate_template()
+
+helper functions
+	def collect_args()
