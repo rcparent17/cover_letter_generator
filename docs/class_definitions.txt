@@ -1,4 +1,8 @@
 CoverLetterGenerator
+	self.template = HTML data from template squashed and stripped into a one line string
+	self.resume_file = the path to the base resume file
+	self.companies = the YAML dictionary containing the company entries
+	self.output_dir = the directory to output the generated PDF files
 	def constructor()
 	def generate_letter()
 	def html_to_pdf()
@@ -7,3 +11,4 @@ CoverLetterGenerator
 
 helper functions
 	def collect_args()
+	def read_yaml()
