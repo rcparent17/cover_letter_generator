@@ -1,8 +1,8 @@
 import sys, os
 
-import yaml
 import pdfkit, pypdf
-import argparse
+
+import clg_helpers
 
 '''
 COMPANY YAML ENTRY TEMPLATE:
@@ -33,18 +33,9 @@ class CoverLetterGenerator:
         self.template = ""
         with open(template_file, "r") as template:
             self.template = "".join([x.strip() for x in template.readlines()])
-        
-
-def collect_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--resume-file", required=True)
-    parser.add_argument("-c", "--companies-file", required=True)
-    parser.add_argument("-t", "--template-file", required=True)
-    parser.add_argument("-o", "--output-dir", required=True)
-    return parser.parse_args()
 
 def main():
-    args = collect_args()
+    args = clg_helpers.collect_args()
     generator = CoverLetterGenerator(args.template_file, args.resume_file, args.companies_file, args.output_dir)
 
 if __name__ == "__main__":
