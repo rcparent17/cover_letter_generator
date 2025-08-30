@@ -13,3 +13,4 @@ helper functions
 	def collect_args()
 	def read_companies()
 	def to_snake_case()
+	def is_valid_companies_yaml()
