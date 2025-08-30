@@ -35,6 +35,30 @@ class CoverLetterGenerator:
             self.template = "".join([x.strip() for x in template.readlines()])
 
         self.companies = clg_helpers.read_companies(companies_file)
+        self.resume_file = resume_file
+        self.output_dir = output_dir
+
+    def generate_letter(self, html_string, company):
+        pass
+
+    def _generate_letter_filename(self, company):
+        pass
+
+    def _generate_resume_filename(self, company):
+        pass
+
+    def output_merged_pdf(self, cover_letter_file):
+        # merger = pytest.PdfWriter()
+        # files = [self.resume_file, cover_letter_file]
+
+        # for file in files:
+        #     merger.append(file)
+        # generate filename
+        # merger.write(output_filename)
+        pass
+
+    def _populate_template(self, company):
+        pass
 
 def main():
     args = clg_helpers.collect_args(sys.argv[1::])

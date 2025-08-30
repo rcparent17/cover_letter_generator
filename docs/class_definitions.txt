@@ -5,9 +5,10 @@ CoverLetterGenerator
 	self.output_dir = the directory to output the generated PDF files
 	def constructor()
 	def generate_letter()
-	def html_to_pdf()
+	def _generate_letter_filename()
+	def _generate_resume_filename()
 	def merge_docs()
-	def populate_template()
+	def _populate_template()
 
 helper functions
 	def collect_args()
