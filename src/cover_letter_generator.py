@@ -34,6 +34,8 @@ class CoverLetterGenerator:
         with open(template_file, "r") as template:
             self.template = "".join([x.strip() for x in template.readlines()])
 
+        self.companies = clg_helpers.read_companies(companies_file)
+
 def main():
     args = clg_helpers.collect_args()
     generator = CoverLetterGenerator(args.template_file, args.resume_file, args.companies_file, args.output_dir)

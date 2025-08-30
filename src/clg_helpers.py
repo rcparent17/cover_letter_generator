@@ -10,7 +10,13 @@ def collect_args():
     return parser.parse_args()
 
 def read_companies(yaml_file):
-    pass
+    companies = []
+    with open(yaml_file, "r") as companies_file:
+        companies_yaml = yaml.safe_load(companies_file)
+    for company in companies_yaml["companies"]:
+        print(company)
+        companies.append(company)
+    return companies
 
 def to_snake_case(text):
     pass
