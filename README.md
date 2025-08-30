@@ -42,7 +42,7 @@ companies:
       - ""
   - name: ... # entry 2 and so on, each company entry starting with a `-` and with the EXACT STRUCTURE of this example entry above
 ```
-2. Template text file - the text of the cover letter to be generated. The script replaces macros with data for each company entry in the companies YAML file. The current planned macros are:
+2. Template HTML file - An HTML template version of the cover letter to be generated (can download Google doc as HTML directly). The script replaces macros with data for each company entry in the companies YAML file. The current planned macros are:
     1. `{COMPANY_NAME}` - The name of the company
     2. `{COMPANY_LOCATION}` - The location of the company's headquarters
     3. `{JOB_TITLE}` - The title on the job posting, written in a human readable way (with any dashes removed and words rearranged if needed)
