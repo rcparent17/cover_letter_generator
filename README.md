@@ -54,7 +54,7 @@ Below is a pseudocode representation of the process flow of the script (mostly f
 1. Read template file into string
 2. Read companies YAML file (`pyyaml`)
 3. For each company:
-	a. Export default CSS to temp HTML file
+	a. Read template HTML file (has CSS included)
 	b. Replace template macros to generate cover letter text
 	c. Convert plaintext cover letter contents to equivalent HTML elements and append it to temp HTML file
 	d. Convert HTML to cover letter PDF in `out/cover_letters` directory (`pdfkit`)
