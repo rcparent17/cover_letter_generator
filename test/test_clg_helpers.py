@@ -141,6 +141,6 @@ def test_collect_args(args):
 
 def clean_tmpdir():
     for i in range(len(TMP_FILES)):
-      os.remove(str(TMP_FILES[i]))
+        os.remove(str(TMP_FILES[i]))
     for i in range(len(TMP_FILES)):
         del TMP_FILES[i]
