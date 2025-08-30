@@ -11,11 +11,39 @@ def collect_args(args):
 
 def read_companies(yaml_file):
     companies = []
-    with open(yaml_file, "r") as companies_file:
-        companies_yaml = yaml.safe_load(companies_file)
-    for company in companies_yaml["companies"]:
-        companies.append(company)
+    if is_valid_companies_yaml(yaml_file):
+        with open(yaml_file, "r") as companies_file:
+            companies_yaml = yaml.safe_load(companies_file)
+        for company in companies_yaml["companies"]:
+            companies.append(company)
     return companies
 
 def to_snake_case(text):
     return text.lower().replace(" ", "_")
+
+def is_valid_companies_yaml(yaml_file):
+    companies = []
+    try:
+        with open(yaml_file, "r") as companies_file:
+            companies_yaml = yaml.safe_load(companies_file)
+        for company in companies_yaml["companies"]:
+            companies.append(company)
+    except yaml.parser.ParserError:
+        raise yaml.error.YAMLError("Invalid input YAML")
+    for company in companies:
+        # conditions that would cause problems in the program
+        try:
+            if any([
+                company["name"] == "" or company["name"] == None,
+                company["location"] == "" or company["location"] == None,
+                company["job_title"] == "" or company["job_title"] == None,
+                company["requirements"] == [] or company["requirements"] == None,
+                company["qualifications"] == [] or company["qualifications"] == None,
+                not len(company["requirements"]) == len(company["qualifications"]),
+                "" in company["requirements"] or "" in [company["qualifications"]]
+            ]):
+                raise yaml.error.YAMLError("Invalid company entry in YAML file")
+        except KeyError:
+            raise yaml.error.YAMLError("Invalid company entry in YAML file")
+
+    return True
