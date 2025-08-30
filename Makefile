@@ -21,4 +21,4 @@ clean:
 clean_run: clean run
 
 test: install
-	poetry run pytest -s -v -l test/*
+	poetry run pytest -l -v test/*
