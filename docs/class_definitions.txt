@@ -11,4 +11,5 @@ CoverLetterGenerator
 
 helper functions
 	def collect_args()
-	def read_yaml()
+	def read_companies()
+	def to_snake_case()
