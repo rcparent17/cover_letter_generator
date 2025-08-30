@@ -18,4 +18,4 @@ def read_companies(yaml_file):
     return companies
 
 def to_snake_case(text):
-    pass
+    return text.lower().replace(" ", "_")
