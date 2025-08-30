@@ -37,7 +37,7 @@ class CoverLetterGenerator:
         self.companies = clg_helpers.read_companies(companies_file)
 
 def main():
-    args = clg_helpers.collect_args()
+    args = clg_helpers.collect_args(sys.argv[1::])
     generator = CoverLetterGenerator(args.template_file, args.resume_file, args.companies_file, args.output_dir)
 
 if __name__ == "__main__":

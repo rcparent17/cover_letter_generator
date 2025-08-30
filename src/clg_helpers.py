@@ -1,13 +1,13 @@
 import argparse
 import yaml
 
-def collect_args():
+def collect_args(args):
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--resume-file", required=True)
     parser.add_argument("-c", "--companies-file", required=True)
     parser.add_argument("-t", "--template-file", required=True)
     parser.add_argument("-o", "--output-dir", required=True)
-    return parser.parse_args()
+    return parser.parse_args(args=args)
 
 def read_companies(yaml_file):
     companies = []
