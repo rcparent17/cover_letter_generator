@@ -19,3 +19,6 @@ clean:
 	rm -rf "${OUT_PATH}"
 
 clean_run: clean run
+
+test: install
+	poetry run pytest test/*
