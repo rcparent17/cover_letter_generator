@@ -101,7 +101,7 @@ def missing_yaml(tmpdir):
     yield tmp_file_path
 
 def clean_tmpdir():
-    for i in range(len(TMP_FILES)):
-        os.remove(str(TMP_FILES[i]))
-    for i in range(len(TMP_FILES)):
-        del TMP_FILES[i]
+    global TMP_FILES
+    for file in TMP_FILES:
+        os.remove(str(file))
+    TMP_FILES = []
