@@ -43,10 +43,18 @@ class CoverLetterGenerator:
         pass
 
     def _generate_letter_filename(self, company):
-        pass
+        snake_applicant_name = clg_helpers.to_snake_case(self.applicant_name)
+        snake_company_name = clg_helpers.to_snake_case(company["name"])
+        snake_job_title = clg_helpers.to_snake_case(company["job_title"])
+        filename = f"{snake_applicant_name}_{snake_company_name}_{snake_job_title}_cover_letter.pdf"
+        return filename
 
     def _generate_resume_filename(self, company):
-        pass
+        snake_applicant_name = clg_helpers.to_snake_case(self.applicant_name)
+        snake_company_name = clg_helpers.to_snake_case(company["name"])
+        snake_job_title = clg_helpers.to_snake_case(company["job_title"])
+        filename = f"{snake_applicant_name}_{snake_company_name}_{snake_job_title}_resume.pdf"
+        return filename
 
     def output_merged_pdf(self, company, cover_letter_file):
         # merger = pytest.PdfWriter()

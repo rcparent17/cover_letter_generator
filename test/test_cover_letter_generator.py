@@ -6,10 +6,10 @@ from clg_test_fixtures import *
 import pytest
 
 def test_generate_letter_filename(generator, company):
-    assert generator._generate_letter_filename(company) == "reilly_parent_comp1_freeloader_cover_letter.pdf"
+    assert generator._generate_letter_filename(company) == "no_one_comp1_freeloader_cover_letter.pdf"
 
 def test_generate_resume_filename(generator, company):
-    assert generator._generate_resume_filename(company) == "reilly_parent_comp1_freeloader_resume.pdf"
+    assert generator._generate_resume_filename(company) == "no_one_comp1_freeloader_resume.pdf"
 
 def test_populate_template(generator):
     template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
