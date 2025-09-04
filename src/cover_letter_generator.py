@@ -25,7 +25,7 @@ COMPANY YAML ENTRY TEMPLATE:
 
 # TODO
 class CoverLetterGenerator:
-    def __init__(self, template_file, resume_file, companies_file, output_dir):
+    def __init__(self, template_file, resume_file, companies_file, output_dir, applicant_name):
         if not (os.path.exists(template_file) or os.path.exists(resume_file) or os.path.exists(companies_file)):
             raise FileExistsError("One or more provided files does not exist.")
         
@@ -37,6 +37,7 @@ class CoverLetterGenerator:
         self.companies = clg_helpers.read_companies(companies_file)
         self.resume_file = resume_file
         self.output_dir = output_dir
+        self.applicant_name = applicant_name
 
     def generate_letter(self, html_string, company):
         pass
@@ -62,7 +63,7 @@ class CoverLetterGenerator:
 
 def main():
     args = clg_helpers.collect_args(sys.argv[1::])
-    generator = CoverLetterGenerator(args.template_file, args.resume_file, args.companies_file, args.output_dir)
+    generator = CoverLetterGenerator(args.template_file, args.resume_file, args.companies_file, args.output_dir, args.applicant_name)
 
 if __name__ == "__main__":
     main()

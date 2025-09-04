@@ -10,7 +10,8 @@ run: install
 		--resume-file "${RESUME_FILE}" \
 		--companies-file "${COMPANIES_FILE}" \
 		--template-file "${TEMPLATE_FILE}" \
-		--output-dir "${OUT_PATH}"
+		--output-dir "${OUT_PATH}" \
+		--applicant-name "no one"
 
 install:
 	poetry install

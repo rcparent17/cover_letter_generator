@@ -1,3 +1,4 @@
+applicant_name: "no one"
 companies:
   - name: "comp1"
     location: "nowhere"
