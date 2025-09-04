@@ -8,6 +8,7 @@ import pytest
 @pytest.fixture
 def company(companies_yaml):
     companies = clg_helpers.read_companies(companies_yaml)
+    clean_tmpdir()
     yield companies[0]
 
 @pytest.fixture
@@ -27,8 +28,11 @@ def test_populate_template(generator):
     expected_populated_template = "\n".join(["no one#comp1#nowhere#freeloader", expected_requirements, expected_qualifications])
     assert generator._populate_template(template) == expected_populated_template
 
-def test_clg_constructor(generator):
-    pass
+def test_clg_constructor(generator, companies_yaml):
+    assert generator.output_dir == "out"
+    assert generator.companies == clg_helpers.read_companies(companies_yaml)
+    assert generator.resume_file == "deps/reilly_parent_devops_resume.pdf"
+    clean_tmpdir()
 
 def test_generate_letter(generator):
     pass
