@@ -1,4 +1,8 @@
-import os
+import sys, os
+
+sys.path.append(os.path.join(os.getcwd(), "src"))
+from cover_letter_generator import CoverLetterGenerator
+import clg_helpers
 
 import pytest
 
@@ -99,6 +103,16 @@ def missing_yaml(tmpdir):
     with open(tmp_file_path, "w") as tmp_yaml_file:
         tmp_yaml_file.write(companies_yaml)
     yield tmp_file_path
+
+@pytest.fixture
+def company(companies_yaml):
+    companies = clg_helpers.read_companies(companies_yaml)
+    clean_tmpdir()
+    yield companies[0]
+
+@pytest.fixture
+def generator():
+    yield CoverLetterGenerator("deps/template.html", "deps/reilly_parent_devops_resume.pdf", "deps/companies.yaml", "out")
 
 def clean_tmpdir():
     global TMP_FILES

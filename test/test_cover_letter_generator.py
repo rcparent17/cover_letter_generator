@@ -1,19 +1,9 @@
 import sys, os
 sys.path.append(os.path.join(os.getcwd(), "src"))
-from cover_letter_generator import CoverLetterGenerator
+
 import clg_helpers
 from clg_test_fixtures import *
 import pytest
-
-@pytest.fixture
-def company(companies_yaml):
-    companies = clg_helpers.read_companies(companies_yaml)
-    clean_tmpdir()
-    yield companies[0]
-
-@pytest.fixture
-def generator():
-    yield CoverLetterGenerator("deps/template.html", "deps/reilly_parent_devops_resume.pdf", "deps/companies.yaml", "out")
 
 def test_generate_letter_filename(generator, company):
     assert generator._generate_letter_filename(company) == "reilly_parent_comp1_freeloader_cover_letter.pdf"
