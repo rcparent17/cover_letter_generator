@@ -34,8 +34,20 @@ def test_clg_constructor(generator, companies_yaml):
     assert generator.resume_file == "deps/reilly_parent_devops_resume.pdf"
     clean_tmpdir()
 
-def test_generate_letter(generator):
-    pass
+def test_generate_letter(generator, company):
+    template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
+    expected_letter_path = "out/cover_letters/reilly_parent_comp1_freeloader_cover_letter.pdf"
+    generator.generate_letter(template, company)
+    assert os.path.exists(expected_letter_path)
+    assert os.path.getsize(expected_letter_path) > 0
+    os.remove(expected_letter_path)
 
-def test_output_merged_pdf(generator):
-    pass
+@pytest.mark.parametrize("cover_letter_file", [
+    "reilly_parent_comp1_freeloader_cover_letter.pdf"
+])
+def test_output_merged_pdf(generator, company, cover_letter_file):
+    expected_resume_path = "out/cover_letters/reilly_parent_comp1_freeloader_cover_letter.pdf"
+    generator.output_merged_pdf(company, cover_letter_file)
+    assert os.path.exists(expected_resume_path)
+    assert os.path.getsize(expected_resume_path) > 0
+    os.remove(expected_resume_path)
