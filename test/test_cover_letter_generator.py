@@ -10,16 +10,24 @@ def company(companies_yaml):
     companies = clg_helpers.read_companies(companies_yaml)
     yield companies[0]
 
-def test_generate_letter_filename(company):
-    assert CoverLetterGenerator._generate_letter_filename(company) == "reilly_parent_comp1_freeloader_cover_letter.pdf"
+@pytest.fixture
+def generator():
+    yield CoverLetterGenerator("deps/template.html", "deps/reilly_parent_devops_resume.pdf", "deps/companies.yaml", "out")
 
-def test_generate_resume_filename(company):
-    assert CoverLetterGenerator._generate_resume_filename(company) == "reilly_parent_comp1_freeloader_resume.pdf"
+def test_generate_letter_filename(generator, company):
+    assert generator._generate_letter_filename(company) == "reilly_parent_comp1_freeloader_cover_letter.pdf"
 
-def test_populate_template(template, company):
-    pass
+def test_generate_resume_filename(generator, company):
+    assert generator._generate_resume_filename(company) == "reilly_parent_comp1_freeloader_resume.pdf"
 
-def test_clg_constructor(template_file, resume_file, companies_file, output_dir):
+def test_populate_template(generator):
+    template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
+    expected_requirements = "<li>eat food</li>\n<li>sleep</li>\n<li>die</li>\n<li>ascend</li>"
+    expected_qualifications = "<li>i eat</li>\n<li>i sleep</li>\n<li>i will die</li>\n<li>i will ascend</li>"
+    expected_populated_template = "\n".join(["no one#comp1#nowhere#freeloader", expected_requirements, expected_qualifications])
+    assert generator._populate_template(template) == expected_populated_template
+
+def test_clg_constructor(generator):
     pass
 
 def test_generate_letter(generator):
