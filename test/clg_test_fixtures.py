@@ -10,7 +10,8 @@ TMP_FILES = []
 
 @pytest.fixture
 def companies_yaml(tmpdir):
-    companies_yaml = '''companies:
+    companies_yaml = '''applicant_name: "no one"
+companies:
   - name: "comp1"
     location: "nowhere"
     job_title: "freeloader"
@@ -82,7 +83,8 @@ def invalid_yaml(tmpdir):
 
 @pytest.fixture
 def missing_yaml(tmpdir):
-    companies_yaml = '''companies:
+    companies_yaml = '''applicant_name: "no one"
+companies:
   - name: "comp1"
     requirements:
       - "eat food"
@@ -112,7 +114,7 @@ def company(companies_yaml):
 
 @pytest.fixture
 def generator():
-    yield CoverLetterGenerator("deps/template.html", "deps/reilly_parent_devops_resume.pdf", "deps/companies.yaml", "out")
+    yield CoverLetterGenerator("deps/template.html", "deps/reilly_parent_devops_resume.pdf", "deps/companies.yaml", "out", "no one")
 
 def clean_tmpdir():
     global TMP_FILES

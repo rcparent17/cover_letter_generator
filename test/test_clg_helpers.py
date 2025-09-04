@@ -1,6 +1,6 @@
 import sys, os
 sys.path.append(os.path.join(os.getcwd(), "src"))
-from clg_helpers import to_snake_case, collect_args, read_companies, is_valid_companies_yaml
+from clg_helpers import to_snake_case, collect_args, read_companies, is_valid_companies_yaml, get_applicant_name
 import pytest
 import yaml
 
@@ -13,6 +13,10 @@ def test_read_companies(companies_yaml):
     assert companies[0]["requirements"][2] == "die"
     clean_tmpdir()
 
+def test_get_applicant_name(companies_yaml):
+    assert get_applicant_name(companies_yaml) == "no one"
+    clean_tmpdir()
+
 # these two below tests also cover invalid input testing for is_valid_companies_yaml()
 
 def test_invalid_companies_yaml(invalid_yaml):
@@ -21,7 +25,7 @@ def test_invalid_companies_yaml(invalid_yaml):
     clean_tmpdir()
 
 def test_missing_companies_yaml(missing_yaml):
-    with pytest.raises(yaml.error.YAMLError, match="Invalid company entry in YAML file"):
+    with pytest.raises(yaml.error.YAMLError, match="Invalid entry in YAML file"):
         read_companies(missing_yaml)
     clean_tmpdir()
 
@@ -35,8 +39,8 @@ def test_to_snake_case():
     assert to_snake_case("Senior DevOps Engineer") == "senior_devops_engineer"
 
 @pytest.mark.parametrize("args", [
-    ["-r", "deps/reilly_parent_devops_resume.pdf", "-c", "deps/companies.yaml", "-t", "deps/template.html", "-o", "out"],
-    ["--resume-file", "deps/reilly_parent_devops_resume.pdf", "--companies-file", "deps/companies.yaml", "--template-file", "deps/template.html", "--output-dir", "out"]
+    ["-r", "deps/reilly_parent_devops_resume.pdf", "-c", "deps/companies.yaml", "-t", "deps/template.html", "-o", "out", "-a", "no one"],
+    ["--resume-file", "deps/reilly_parent_devops_resume.pdf", "--companies-file", "deps/companies.yaml", "--template-file", "deps/template.html", "--output-dir", "out", "--applicant-name", "no one"]
 ])
 def test_collect_args(args):
     parsed_args = collect_args(args)
