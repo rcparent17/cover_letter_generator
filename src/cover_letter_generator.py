@@ -47,7 +47,7 @@ class CoverLetterGenerator:
     def _generate_resume_filename(self, company):
         pass
 
-    def output_merged_pdf(self, cover_letter_file):
+    def output_merged_pdf(self, company, cover_letter_file):
         # merger = pytest.PdfWriter()
         # files = [self.resume_file, cover_letter_file]
 
