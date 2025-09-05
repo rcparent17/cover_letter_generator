@@ -29,11 +29,12 @@ def test_generate_letter(generator, company):
     generator.generate_letter(company)
     assert os.path.exists(expected_letter_path)
     assert os.path.getsize(expected_letter_path) > 0
-    #os.remove(expected_letter_path)
 
 def test_output_merged_pdf(generator, company):
+    expected_letter_path = "out/cover_letters/no_one_comp1_freeloader_cover_letter.pdf"
     expected_resume_path = "out/resumes/no_one_comp1_freeloader_resume.pdf"
     generator.output_merged_pdf(company)
     assert os.path.exists(expected_resume_path)
     assert os.path.getsize(expected_resume_path) > 0
-    #os.remove(expected_resume_path)
+    os.remove(expected_letter_path)
+    os.remove(expected_resume_path)
