@@ -1,7 +1,7 @@
 import argparse
 import yaml
 
-
+# Collect command line arguments with argparse. These are all passed in the Makefile correctly
 def collect_args(args):
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--resume-file", required=True)
@@ -11,7 +11,7 @@ def collect_args(args):
     parser.add_argument("-a", "--applicant-name", required=True)
     return parser.parse_args(args=args)
 
-
+# Return a list of the company entries in the passed YAML file
 def read_companies(yaml_file):
     companies = []
     if is_valid_companies_yaml(yaml_file):
@@ -21,7 +21,7 @@ def read_companies(yaml_file):
             companies.append(company)
     return companies
 
-
+# Read the applicant's name from the passed YAML file
 def get_applicant_name(yaml_file):
     name = ""
     if is_valid_companies_yaml(yaml_file):
@@ -29,11 +29,11 @@ def get_applicant_name(yaml_file):
             name = yaml.safe_load(companies_file)["applicant_name"]
     return name
 
-
+# Converts a string to_snake_case
 def to_snake_case(text):
     return text.lower().replace(" ", "_")
 
-
+# Verifies that a companies YAML file contains all of the expected data
 def is_valid_companies_yaml(yaml_file):
     companies = []
     applicant_name = ""
