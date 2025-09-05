@@ -1,6 +1,8 @@
 import sys, os
 
-import pdfkit, pypdf
+import pypdf
+
+from weasyprint import HTML
 
 import clg_helpers
 
@@ -46,10 +48,12 @@ class CoverLetterGenerator:
         letter_filepath = f"{letter_dir}/{self._generate_letter_filename(company)}"
         populated_template = self._populate_template(company)
         # generate file
-        pdfkit_options = {
-            "page-size": "Letter"
-        }
-        pdfkit.from_string(populated_template, letter_filepath, options=pdfkit_options)
+        # pdfkit_options = {
+        #     "page-size": "Letter",
+        #     "enable-local-file-access": None
+        # }
+        # pdfkit.from_string(populated_template, letter_filepath, options=pdfkit_options)
+        HTML(string=populated_template).write_pdf(letter_filepath, full_fonts=True)
 
     def _generate_letter_filename(self, company):
         snake_applicant_name = clg_helpers.to_snake_case(self.applicant_name)
