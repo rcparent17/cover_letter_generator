@@ -6,6 +6,7 @@ from weasyprint import HTML
 
 import clg_helpers
 
+
 # Class that encapsulates all functionality for generating cover letters and combined resumes, based on YAML input
 class CoverLetterGenerator:
     def __init__(
@@ -93,6 +94,7 @@ class CoverLetterGenerator:
         for macro, value in replacement_macros.items():
             populated_template = populated_template.replace(macro, value)
         return populated_template
+
 
 # Main function. Invoked by make
 def main():

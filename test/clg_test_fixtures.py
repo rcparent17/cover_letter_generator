@@ -113,6 +113,7 @@ companies:
         tmp_yaml_file.write(companies_yaml)
     yield tmp_file_path
 
+
 # Simulates a company entry in a YAML file. Relies on companies_yaml fixture
 @pytest.fixture
 def company(companies_yaml):
