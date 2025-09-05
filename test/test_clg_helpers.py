@@ -67,8 +67,6 @@ def test_to_snake_case():
             "deps/template.html",
             "-o",
             "out",
-            "-a",
-            "no one",
         ],
         [
             "--resume-file",
@@ -79,8 +77,6 @@ def test_to_snake_case():
             "deps/template.html",
             "--output-dir",
             "out",
-            "--applicant-name",
-            "no one",
         ],
     ],
 )

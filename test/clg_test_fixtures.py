@@ -130,7 +130,6 @@ def generator():
         "deps/reilly_parent_devops_resume.pdf",
         "deps/companies.yaml",
         "out",
-        "no one",
     )
 
 

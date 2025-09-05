@@ -10,7 +10,7 @@ import clg_helpers
 # Class that encapsulates all functionality for generating cover letters and combined resumes, based on YAML input
 class CoverLetterGenerator:
     def __init__(
-        self, template_file, resume_file, companies_file, output_dir, applicant_name
+        self, template_file, resume_file, companies_file, output_dir
     ):
         if not (
             os.path.exists(template_file)
@@ -27,7 +27,7 @@ class CoverLetterGenerator:
         self.companies = clg_helpers.read_companies(companies_file)
         self.resume_file = resume_file
         self.output_dir = output_dir
-        self.applicant_name = applicant_name
+        self.applicant_name = clg_helpers.get_applicant_name(companies_file)
 
     # Generates a cover letter PDF file for a company entry and the generator's populated template
     def generate_letter(self, company):
@@ -104,7 +104,6 @@ def main():
         args.resume_file,
         args.companies_file,
         args.output_dir,
-        args.applicant_name,
     )
     for company in generator.companies:
         generator.generate_letter(company)

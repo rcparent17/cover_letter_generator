@@ -8,7 +8,6 @@ def collect_args(args):
     parser.add_argument("-c", "--companies-file", required=True)
     parser.add_argument("-t", "--template-file", required=True)
     parser.add_argument("-o", "--output-dir", required=True)
-    parser.add_argument("-a", "--applicant-name", required=True)
     return parser.parse_args(args=args)
 
 # Return a list of the company entries in the passed YAML file
