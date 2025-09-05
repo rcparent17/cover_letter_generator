@@ -109,6 +109,9 @@ class CoverLetterGenerator:
 def main():
     args = clg_helpers.collect_args(sys.argv[1::])
     generator = CoverLetterGenerator(args.template_file, args.resume_file, args.companies_file, args.output_dir, args.applicant_name)
+    for company in generator.companies:
+        generator.generate_letter(company)
+        generator.output_merged_pdf(company)
 
 if __name__ == "__main__":
     main()
