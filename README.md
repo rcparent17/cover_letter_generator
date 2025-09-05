@@ -42,7 +42,7 @@ companies:
       - ""
   - name: ... # entry 2 and so on, each company entry starting with a `-` and with the EXACT STRUCTURE of this example entry above
 ```
-2. Template text file - the text of the cover letter to be generated. The script replaces macros with data for each company entry in the companies YAML file. The current planned macros are:
+2. Template HTML file - An HTML template version of the cover letter to be generated (can download Google doc as HTML directly). The script replaces macros with data for each company entry in the companies YAML file. The current planned macros are:
     1. `{COMPANY_NAME}` - The name of the company
     2. `{COMPANY_LOCATION}` - The location of the company's headquarters
     3. `{JOB_TITLE}` - The title on the job posting, written in a human readable way (with any dashes removed and words rearranged if needed)
@@ -54,7 +54,7 @@ Below is a pseudocode representation of the process flow of the script (mostly f
 1. Read template file into string
 2. Read companies YAML file (`pyyaml`)
 3. For each company:
-	a. Export default CSS to temp HTML file
+	a. Read template HTML file (has CSS included)
 	b. Replace template macros to generate cover letter text
 	c. Convert plaintext cover letter contents to equivalent HTML elements and append it to temp HTML file
 	d. Convert HTML to cover letter PDF in `out/cover_letters` directory (`pdfkit`)
