@@ -11,12 +11,12 @@ def test_generate_letter_filename(generator, company):
 def test_generate_resume_filename(generator, company):
     assert generator._generate_resume_filename(company) == "no_one_comp1_freeloader_resume.pdf"
 
-def test_populate_template(generator):
-    template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
-    expected_requirements = "<li>eat food</li>\n<li>sleep</li>\n<li>die</li>\n<li>ascend</li>"
-    expected_qualifications = "<li>i eat</li>\n<li>i sleep</li>\n<li>i will die</li>\n<li>i will ascend</li>"
+def test_populate_template(generator, company):
+    generator.template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
+    expected_requirements = "<li>eat food</li><li>sleep</li><li>die</li><li>ascend</li>"
+    expected_qualifications = "<li>i eat</li><li>i sleep</li><li>i will die</li><li>i will ascend</li>"
     expected_populated_template = "\n".join(["no one#comp1#nowhere#freeloader", expected_requirements, expected_qualifications])
-    assert generator._populate_template(template) == expected_populated_template
+    assert generator._populate_template(company) == expected_populated_template
 
 def test_clg_constructor(generator, companies_yaml):
     assert generator.output_dir == "out"

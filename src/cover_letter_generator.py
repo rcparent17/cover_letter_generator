@@ -67,7 +67,24 @@ class CoverLetterGenerator:
         pass
 
     def _populate_template(self, company):
-        pass
+        populated_template = self.template
+        requirements = ""
+        for requirement in company["requirements"]:
+            requirements += f"<li>{requirement}</li>"
+        qualifications = ""
+        for qualification in company["qualifications"]:
+            qualifications += f"<li>{qualification}</li>"
+        replacement_macros = {
+            "{APPLICANT_NAME}": self.applicant_name,
+            "{COMPANY_NAME}": company["name"],
+            "{COMPANY_LOCATION}": company["location"],
+            "{JOB_TITLE}": company["job_title"],
+            "{REQUIREMENTS}": requirements,
+            "{QUALIFICATIONS}": qualifications
+        }
+        for macro, value in replacement_macros.items():
+            populated_template = populated_template.replace(macro, value)
+        return populated_template
 
 def main():
     args = clg_helpers.collect_args(sys.argv[1::])
