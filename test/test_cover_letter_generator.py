@@ -1,10 +1,10 @@
 import sys, os
 
+# add src to python path to import source code during testing
 sys.path.append(os.path.join(os.getcwd(), "src"))
 
 import clg_helpers
 from clg_test_fixtures import *
-import pytest
 
 
 def test_generate_letter_filename(generator, company):

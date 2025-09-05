@@ -1,5 +1,6 @@
 import sys, os
 
+# add src to python path to import source code during testing
 sys.path.append(os.path.join(os.getcwd(), "src"))
 from cover_letter_generator import CoverLetterGenerator
 import clg_helpers
@@ -9,6 +10,7 @@ import pytest
 TMP_FILES = []
 
 
+# Simulates a correctly formatted input YAML file
 @pytest.fixture
 def companies_yaml(tmpdir):
     companies_yaml = """applicant_name: "no one"
@@ -47,6 +49,7 @@ companies:
     yield tmp_file_path
 
 
+# Simulates a YAML file with invalid syntax
 @pytest.fixture
 def invalid_yaml(tmpdir):
     companies_yaml = """:
@@ -84,6 +87,7 @@ def invalid_yaml(tmpdir):
     yield tmp_file_path
 
 
+# Simulates a YAML file with expected elements missing
 @pytest.fixture
 def missing_yaml(tmpdir):
     companies_yaml = """applicant_name: "no one"
@@ -109,7 +113,7 @@ companies:
         tmp_yaml_file.write(companies_yaml)
     yield tmp_file_path
 
-
+# Simulates a company entry in a YAML file. Relies on companies_yaml fixture
 @pytest.fixture
 def company(companies_yaml):
     companies = clg_helpers.read_companies(companies_yaml)
@@ -117,6 +121,7 @@ def company(companies_yaml):
     yield companies[0]
 
 
+# Simulates a generator with the default input paths. If yours are named differently this test will fail
 @pytest.fixture
 def generator():
     yield CoverLetterGenerator(
@@ -128,6 +133,7 @@ def generator():
     )
 
 
+# Remove any temporary files generated during testing
 def clean_tmpdir():
     global TMP_FILES
     for file in TMP_FILES:

@@ -6,7 +6,7 @@ from weasyprint import HTML
 
 import clg_helpers
 
-
+# Class that encapsulates all functionality for generating cover letters and combined resumes, based on YAML input
 class CoverLetterGenerator:
     def __init__(
         self, template_file, resume_file, companies_file, output_dir, applicant_name
@@ -28,6 +28,7 @@ class CoverLetterGenerator:
         self.output_dir = output_dir
         self.applicant_name = applicant_name
 
+    # Generates a cover letter PDF file for a company entry and the generator's populated template
     def generate_letter(self, company):
         letter_dir = f"{self.output_dir}/cover_letters"
         # create dir if it doesn't exist
@@ -37,6 +38,7 @@ class CoverLetterGenerator:
         HTML(string=populated_template).write_pdf(letter_filepath, full_fonts=True)
         print(f"Cover letter generated: {letter_filepath}")
 
+    # Generates the desired cover letter file name (all in snake case) for a company entry
     def _generate_letter_filename(self, company):
         snake_applicant_name = clg_helpers.to_snake_case(self.applicant_name)
         snake_company_name = clg_helpers.to_snake_case(company["name"])
@@ -44,15 +46,15 @@ class CoverLetterGenerator:
         filename = f"{snake_applicant_name}_{snake_company_name}_{snake_job_title}_cover_letter.pdf"
         return filename
 
+    # Generates the desired resume file name (all in snake case) for a company entry
     def _generate_resume_filename(self, company):
         snake_applicant_name = clg_helpers.to_snake_case(self.applicant_name)
         snake_company_name = clg_helpers.to_snake_case(company["name"])
         snake_job_title = clg_helpers.to_snake_case(company["job_title"])
-        filename = (
-            f"{snake_applicant_name}_{snake_company_name}_{snake_job_title}_resume.pdf"
-        )
+        filename = f"{snake_applicant_name}_{snake_company_name}_{snake_job_title}_resume.pdf"
         return filename
 
+    # Combines the base resume PDF file and the already generated cover letter PDF file into a new output PDF file
     def output_merged_pdf(self, company):
         resume_filename = self._generate_resume_filename(company)
         letter_filename = self._generate_letter_filename(company)
@@ -71,6 +73,7 @@ class CoverLetterGenerator:
         writer.write(resume_filepath)
         print(f"Combined resume generated: {resume_filepath}")
 
+    # Replaces all macros in the generator's template with their values from the company entry. Returns new string
     def _populate_template(self, company):
         populated_template = self.template
         requirements = ""
@@ -91,7 +94,7 @@ class CoverLetterGenerator:
             populated_template = populated_template.replace(macro, value)
         return populated_template
 
-
+# Main function. Invoked by make
 def main():
     args = clg_helpers.collect_args(sys.argv[1::])
     generator = CoverLetterGenerator(

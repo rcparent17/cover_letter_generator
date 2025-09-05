@@ -1,5 +1,6 @@
 import sys, os
 
+# add src to python path to import source code during testing
 sys.path.append(os.path.join(os.getcwd(), "src"))
 from clg_helpers import (
     to_snake_case,
@@ -53,6 +54,7 @@ def test_to_snake_case():
     assert to_snake_case("Senior DevOps Engineer") == "senior_devops_engineer"
 
 
+# Test argument collection with both short and long argparse arguments
 @pytest.mark.parametrize(
     "args",
     [
