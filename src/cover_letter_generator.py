@@ -19,7 +19,7 @@ class CoverLetterGenerator:
         ):
             raise FileExistsError("One or more provided files does not exist.")
 
-        # read template
+        # read template as oneline HTML string
         self.template = ""
         with open(template_file, "r") as template:
             self.template = "".join([x.strip() for x in template.readlines()])
