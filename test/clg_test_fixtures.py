@@ -8,9 +8,10 @@ import pytest
 
 TMP_FILES = []
 
+
 @pytest.fixture
 def companies_yaml(tmpdir):
-    companies_yaml = '''applicant_name: "no one"
+    companies_yaml = """applicant_name: "no one"
 companies:
   - name: "comp1"
     location: "nowhere"
@@ -38,16 +39,17 @@ companies:
       - "i eat"
       - "i still eat"
       - "i sleep"
-    '''.strip()
+    """.strip()
     tmp_file_path = tmpdir.join("tmp_companies.yaml")
     TMP_FILES.append(tmp_file_path)
     with open(tmp_file_path, "w") as tmp_yaml_file:
         tmp_yaml_file.write(companies_yaml)
     yield tmp_file_path
 
+
 @pytest.fixture
 def invalid_yaml(tmpdir):
-    companies_yaml = ''':
+    companies_yaml = """:
   - name: "comp1"
     location: "nowhere"
     job_title: "freeloader"
@@ -74,16 +76,17 @@ def invalid_yaml(tmpdir):
       - "i eat"
       - "i still eat"
       - "i sleep"
-    '''.strip()
+    """.strip()
     tmp_file_path = tmpdir.join("invalid_companies.yaml")
     TMP_FILES.append(tmp_file_path)
     with open(tmp_file_path, "w") as tmp_yaml_file:
         tmp_yaml_file.write(companies_yaml)
     yield tmp_file_path
 
+
 @pytest.fixture
 def missing_yaml(tmpdir):
-    companies_yaml = '''applicant_name: "no one"
+    companies_yaml = """applicant_name: "no one"
 companies:
   - name: "comp1"
     requirements:
@@ -99,12 +102,13 @@ companies:
   - name: "comp2"
     location: "anywhere"
     job_title: "anything"
-    '''.strip()
+    """.strip()
     tmp_file_path = tmpdir.join("invalid_companies.yaml")
     TMP_FILES.append(tmp_file_path)
     with open(tmp_file_path, "w") as tmp_yaml_file:
         tmp_yaml_file.write(companies_yaml)
     yield tmp_file_path
+
 
 @pytest.fixture
 def company(companies_yaml):
@@ -112,9 +116,17 @@ def company(companies_yaml):
     clean_tmpdir()
     yield companies[0]
 
+
 @pytest.fixture
 def generator():
-    yield CoverLetterGenerator("deps/template.html", "deps/reilly_parent_devops_resume.pdf", "deps/companies.yaml", "out", "no one")
+    yield CoverLetterGenerator(
+        "deps/template.html",
+        "deps/reilly_parent_devops_resume.pdf",
+        "deps/companies.yaml",
+        "out",
+        "no one",
+    )
+
 
 def clean_tmpdir():
     global TMP_FILES
