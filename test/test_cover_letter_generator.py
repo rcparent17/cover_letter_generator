@@ -13,7 +13,7 @@ def test_generate_resume_filename(generator, company):
 
 def test_populate_template(generator, company):
     generator.template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
-    expected_requirements = "<li>eat food</li><li>sleep</li><li>die</li><li>ascend</li>"
+    expected_requirements = "<li>eat food and like this one has to be really long to test the line wrapping indentation so im just gonna keep typing here while the nfl kickoff eagles vs cowboys plays in the background i hope jerry jones loses</li><li>sleep</li><li>die</li><li>ascend</li>"
     expected_qualifications = "<li>i eat</li><li>i sleep</li><li>i will die</li><li>i will ascend</li>"
     expected_populated_template = "\n".join(["no one#comp1#nowhere#freeloader", expected_requirements, expected_qualifications])
     assert generator._populate_template(company) == expected_populated_template
@@ -25,9 +25,8 @@ def test_clg_constructor(generator, companies_yaml):
     clean_tmpdir()
 
 def test_generate_letter(generator, company):
-    template = "{APPLICANT_NAME}#{COMPANY_NAME}#{COMPANY_LOCATION}#{JOB_TITLE}\n{REQUIREMENTS}\n{QUALIFICATIONS}"
-    expected_letter_path = "out/cover_letters/reilly_parent_comp1_freeloader_cover_letter.pdf"
-    generator.generate_letter(template, company)
+    expected_letter_path = "out/cover_letters/no_one_comp1_freeloader_cover_letter.pdf"
+    generator.generate_letter(company)
     assert os.path.exists(expected_letter_path)
     assert os.path.getsize(expected_letter_path) > 0
     os.remove(expected_letter_path)
