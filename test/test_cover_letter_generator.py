@@ -35,7 +35,7 @@ def test_generate_letter(generator, company):
     "reilly_parent_comp1_freeloader_cover_letter.pdf"
 ])
 def test_output_merged_pdf(generator, company, cover_letter_file):
-    expected_resume_path = "out/cover_letters/reilly_parent_comp1_freeloader_cover_letter.pdf"
+    expected_resume_path = "out/resumes/reilly_parent_comp1_freeloader_resume.pdf"
     generator.output_merged_pdf(company, cover_letter_file)
     assert os.path.exists(expected_resume_path)
     assert os.path.getsize(expected_resume_path) > 0
