@@ -39,8 +39,17 @@ class CoverLetterGenerator:
         self.output_dir = output_dir
         self.applicant_name = applicant_name
 
-    def generate_letter(self, html_string, company):
-        pass
+    def generate_letter(self, company):
+        letter_dir = f"{self.output_dir}/cover_letters"
+        # create dir if it doesn't exist
+        os.makedirs(letter_dir, exist_ok = True)
+        letter_filepath = f"{letter_dir}/{self._generate_letter_filename(company)}"
+        populated_template = self._populate_template(company)
+        # generate file
+        pdfkit_options = {
+            "page-size": "Letter"
+        }
+        pdfkit.from_string(populated_template, letter_filepath, options=pdfkit_options)
 
     def _generate_letter_filename(self, company):
         snake_applicant_name = clg_helpers.to_snake_case(self.applicant_name)
