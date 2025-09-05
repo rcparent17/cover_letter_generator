@@ -69,15 +69,22 @@ class CoverLetterGenerator:
         filename = f"{snake_applicant_name}_{snake_company_name}_{snake_job_title}_resume.pdf"
         return filename
 
-    def output_merged_pdf(self, company, cover_letter_file):
-        # merger = pytest.PdfWriter()
-        # files = [self.resume_file, cover_letter_file]
+    def output_merged_pdf(self, company):
+        resume_filename = self._generate_resume_filename(company)
+        letter_filename = self._generate_letter_filename(company)
+        letter_dir = f"{self.output_dir}/cover_letters"
+        resume_dir = f"{self.output_dir}/resumes"
+        # create dir if it doesn't exist
+        os.makedirs(resume_dir, exist_ok = True)
+        letter_filepath = f"{letter_dir}/{letter_filename}"
+        resume_filepath = f"{resume_dir}/{resume_filename}"
+        
+        writer = pypdf.PdfWriter()
+        # add base resume and generated cover letter to writer
+        writer.append(self.resume_file)
+        writer.append(letter_filepath)
 
-        # for file in files:
-        #     merger.append(file)
-        # generate filename
-        # merger.write(output_filename)
-        pass
+        writer.write(resume_filepath)
 
     def _populate_template(self, company):
         populated_template = self.template

@@ -29,14 +29,11 @@ def test_generate_letter(generator, company):
     generator.generate_letter(company)
     assert os.path.exists(expected_letter_path)
     assert os.path.getsize(expected_letter_path) > 0
-    os.remove(expected_letter_path)
+    #os.remove(expected_letter_path)
 
-@pytest.mark.parametrize("cover_letter_file", [
-    "reilly_parent_comp1_freeloader_cover_letter.pdf"
-])
-def test_output_merged_pdf(generator, company, cover_letter_file):
-    expected_resume_path = "out/resumes/reilly_parent_comp1_freeloader_resume.pdf"
-    generator.output_merged_pdf(company, cover_letter_file)
+def test_output_merged_pdf(generator, company):
+    expected_resume_path = "out/resumes/no_one_comp1_freeloader_resume.pdf"
+    generator.output_merged_pdf(company)
     assert os.path.exists(expected_resume_path)
     assert os.path.getsize(expected_resume_path) > 0
-    os.remove(expected_resume_path)
+    #os.remove(expected_resume_path)
