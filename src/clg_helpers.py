@@ -30,7 +30,7 @@ def get_applicant_name(yaml_file):
 
 # Converts a string to_snake_case
 def to_snake_case(text):
-    return text.lower().replace(" ", "_")
+    return text.lower().replace(" ", "_").replace("/", "_")
 
 # Verifies that a companies YAML file contains all of the expected data
 def is_valid_companies_yaml(yaml_file):
