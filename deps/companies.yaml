@@ -1,28 +1,120 @@
+company_template:
+  - name: ""
+    location: ""
+    job_title: ""
+    requirements:
+      - ""
+      - ""
+      - ""
+      - ""
+    qualifications:
+      - ""
+      - ""
+      - ""
+      - ""
+
 applicant_name: "Reilly Parent"
+
 companies:
-  - name: "comp1"
-    location: "nowhere"
-    job_title: "freeloader"
+  - name: "Iteris"
+    location: "Santa Ana, CA, USA"
+    job_title: "Lead DevOps Engineer"
     requirements:
-      - "eat food and like this one has to be really long to test the line wrapping indentation so im just gonna keep typing here while the nfl kickoff eagles vs cowboys plays in the background i hope jerry jones loses"
-      - "sleep"
-      - "die"
-      - "ascend"
+      - "Strong working knowledge of modern continuous development techniques and pipelines (Jenkins, Github, Gitlab)."
+      - "Over five (5) years experience with container technologies such as Docker and Kubernetes."
+      - "Production level experience with distributed applications at scale in cloud (AWS/Azure)."
+      - "Good knowledge of Bash or Python or some other programming language"
     qualifications:
-      - "i eat"
-      - "i sleep"
-      - "i will die"
-      - "i will ascend"
-  - name: "comp2"
-    location: "anywhere"
-    job_title: "anything"
+      - "8 years of CI/CD pipeline creation and development experience with pipelines that integrated code from hundreds of internal developer teams."
+      - "6 years of large-scale containerization experience in the automotive industry using Docker and Kubernetes."
+      - "5 years of combined cloud experience across GCP, AWS, and Red Hat OpenShift. Currently pursuing a GCP Cloud Engineer certification."
+      - "10 years of combined programming experience in Python, Bash / Shell, Java, JavaScript, C#, and other languages."
+  - name: "Effodio"
+    location: "Santa Clara, CA, USA"
+    job_title: "Senior DevOps Engineer"
     requirements:
-      - "wake up"
-      - "eat"
-      - "eat again"
-      - "sleep"
+      - "7+ years in DevOps, SRE, or Platform Engineering with expertise in cloud-native systems. Strong Linux system administration skills are a must. Having experience with network design and deployment is highly desirable."
+      - "Proficient in AWS, Kubernetes, Terraform, CI/CD, and scripting (Python, Bash, or Go)."
+      - "Strong track record of automating infrastructure and deployment processes. Demonstrate the ability to create automation scripts when provided with a set of requirements."
+      - "Effective communicator with experience working across engineering teams. Experience working in a SCRUM environment."
     qualifications:
-      - "i wake up"
-      - "i eat"
-      - "i still eat"
-      - "i sleep"
+      - "8 years of CI/CD pipeline creation and development experience with pipelines that integrated code from hundreds of internal developer teams. 8 years of Linux experience in a DevOps context."
+      - "5 years of combined cloud experience across GCP, AWS, and Red Hat OpenShift. 10 years of scripting experience in Python and Bash. Hands-on experience with Terraform for infrastructure automation and 2 years of direct Kubernetes experience."
+      - "A strong history of automating tasks that significantly improve developer experience and increase operational efficiency."
+      - "8 years of experience working in SCRUM in the context of Scaled Agile (SAFe) and collaborating with other developer teams."
+  - name: "GEICO"
+    location: "Chase, MD, USA"
+    job_title: "Senior CI/CD Site Reliability Engineer"
+    requirements:
+      - "3+ years of experience building the architecture and design of new and current systems."
+      - "3+ years of experience with AWS, GCP, Azure, or hybrid data center."
+      - "4+ years of developing and maintaining software deployment processes in a Java, .NET, or python environment."
+      - "2+ years of experience in open-source frameworks, or one of the following: .NET Core, asp. Net, Angular, or Express."
+    qualifications:
+      - "5 years of experience designing and architecting DevOps and software systems in the automotive industry."
+      - "5 years of combined cloud experience across GCP, AWS, and Red Hat OpenShift. Currently pursuing a GCP Cloud Engineer certification."
+      - "10 years of combined programming experience in Python, Bash / Shell, Java, JavaScript, C#, and other languages in production."
+      - "2 years of experience in both .NET core and Svelte (an open source JS/TS web framework)."
+  - name: "Sparibis"
+    location: "Washington, DC, USA"
+    job_title: "DevSecOps Engineer"
+    requirements:
+      - "Extensive experience with CI/CD frameworks and containerized pipelines and orchestration using Terraform, Kubernetes, CloudFormation, Ansible, Harness, Docker, and Jenkins."
+      - "5+ years of professional experience planning, building and supporting AWS Cloud and DevSecOps environments."
+      - "Must have experience in Linux and scripting tools such as Python, Bash, or PowerShell."
+      - "Must have experience within Agile environment and Agile methodologies and DevOps principles to facilitate collaboration and continue improvement."
+    qualifications:
+      - "8 years of CI/CD pipeline creation and development experience with pipelines that integrated code from hundreds of internal developer teams with Docker, Kubernetes, Terraform, Ansible, Jenkins, and GitHub Actions."
+      - "5 years of combined cloud experience across GCP, AWS, and Red Hat OpenShift. Currently pursuing a GCP Cloud Engineer certification."
+      - "8 years of Linux experience within a DevOps context. 10 years of scripting experience in Python and Bash."
+      - "8 years of experience working in SCRUM in the context of Scaled Agile (SAFe) and collaborating with other developer teams."
+  - name: "Clear Capital"
+    location: "Truckee, CA, USA"
+    job_title: "Senior DevOps Engineer"
+    requirements:
+      - "5+ years of experience in a combination of software development and technical operations support (ideally a bit of both), with a strong emphasis on DevOps."
+      - "Scripting experience with a scripting language like Shell, Python, etc."
+      - "Expertise using AWS foundational services, such as EC2, ELB, VPC/Networking, S3, SQS, SNS"
+      - "Proficiency with Docker and Kubernetes."
+    qualifications:
+      - "8 years of CI/CD pipeline creation and development experience with pipelines that integrated code from hundreds of internal developer teams."
+      - "10 years of scripting experience in Python and Bash."
+      - "Equivalent experience in GCP services (GCE, CLB, VPC, GCS, Cloud Tasks, Pub/Sub)."
+      - "6 years of large-scale containerization experience in the automotive industry using Docker and Kubernetes."
+
+qualification_bank:
+  devops_pipelines: "8 years of CI/CD pipeline creation and development experience with pipelines that integrated code from hundreds of internal developer teams."
+  docker_k8s: "6 years of large-scale containerization experience in the automotive industry using Docker and Kubernetes."
+  cloud: "5 years of combined cloud experience across GCP, AWS, and Red Hat OpenShift. Currently pursuing a GCP Cloud Engineer certification."
+  programming: "10 years of combined programming experience in Python, Bash / Shell, Java, JavaScript, C#, and other languages."
+  scripting: "10 years of scripting experience in Python and Bash."
+  terraform: "Hands-on experience with Terraform for infrastructure automation."
+  automation: "A strong history of automating tasks that significantly improve developer experience and increase operational efficiency."
+  agile: "8 years of experience working in SCRUM in the context of Scaled Agile (SAFe) and collaborating with other developer teams."
+  architecture_system_design: "4 years of experience designing and architecting DevOps and software systems in the automotive industry."
+  .NET: "2 years of experience in .NET core developing desktop applications."
+  svelte: "2 years of web development experience in Svelte (an open source JS/TS framework)."
+  linux: "8 years of Linux experience within a DevOps context."
+  equivalent_gcp: "Equivalent experience in GCP services (GCE, CLB, VPC, GCS, Cloud Tasks, Pub/Sub)."
+
+plaintext_experience:
+  devops_engineer: |
+    Created, maintained, and owned several large-scale GitHub Actions and Jenkins software build pipelines. Automated code coverage and unit testing for development teams. Migrated pipelines from legacy platforms to modern ones. Managed monthly production-signed software releases. Containerized build processes. Created and implemented git branching strategies for CI/CD.
+
+    * Created a software integration pipeline that consumed, compiled, tested, and integrated C code from 100+ software teams, reducing time to build by 40%, automating static code analysis, and vastly simplifying the testing and integration processes.
+
+    * Developed GitHub Actions pipelines to containerize and replace legacy Jenkins pipelines, improving build reliability and making them hardware-agnostic.
+
+    * Reduced the time needed to create a production-signed software release by 90% by automating the process with a Jenkins pipeline that properly configured 200+ involved git repositories for each release.
+
+    * Tested build pipelines with new Docker containers / infrastructure generated by Terraform to ensure functional equivalency, leading to minimal downtime during backend infrastructure migrations.
+
+    * Owned component build pipelines, ensuring their functionality and availability by serving as a subject matter expert and first point of contact when problems and user requests arose.
+
+    * Supported GCP operations (including Compute Engine and Kubernetes / GKE), ensuring sufficient compute power and build agent availability for CI/CD pipelines.
+  product_development_co_op: |
+    Rotated to different software teams doing DevOps work. Built out some of the first CI/CD processes in the powertrain department. Reworked legacy software processes to function with industry standard tools.  
+
+    * Completed an undergraduate co-op thesis project that resulted in a new powertrain application build system, completely decoupled from legacy tools that were hard coded into the prior process, resulting in a 75% decrease in build time.
+
+    * Ensured build agents were consistently available by implementing Docker containers and Kubernetes clusters into powertrain OpenShift infrastructure.
